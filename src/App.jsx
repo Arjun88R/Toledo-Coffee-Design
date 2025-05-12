@@ -1,13 +1,23 @@
-// Remove unused imports
-import React from 'react';
+import React, { useRef } from 'react';
 import './App.css';
 import logo from './assets/logo.png'; // replace with your logo path
+import LionsHead from './assets/Lions head.jpg';
+import GreenEtching from './assets/Lion-coffee-card-green-etching.jpg';
+import EasterLion from './assets/Easter-Lion-coffee-ad.jpg';
+import WoolsonSpice from './assets/Woolson-Spice.jpg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faAnglesDown } from '@fortawesome/free-solid-svg-icons';
 
 export default function Navbar() {
+  const scrollTargetRef = useRef(null);
+
+  const handleChevronClick = () => {
+    if (scrollTargetRef.current) {
+      scrollTargetRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
-    <>
     <div className="main-container">
       <nav className="navbar">
         <div className="logo">
@@ -113,12 +123,12 @@ export default function Navbar() {
               <p>November 3rd, 2025</p>
           </div>
 
-          <button className="chevron-button" aria-label="Expand article">
+          <button className="chevron-button" aria-label="Expand article" onClick={handleChevronClick}>
             <FontAwesomeIcon icon={faAnglesDown} />
           </button>
       </div>
 
-      <div className="background-image-2">
+      <div className="background-image-2" ref={scrollTargetRef}>
          
         <div className="section-1">
           <p className="big-t">T</p>
@@ -126,13 +136,41 @@ export default function Navbar() {
           <div className="para-1">
             <p>he best coffee on the islands for many Hawaiian residents comes from a one-pound package with an iconic image: a lion’s head. But here’s the catch – the iconic lion and the coffee it brands trace their heritage not to the tropics, but about 4,400 miles to the northeast in Toledo.</p>
             <p1><em>“When I tell people it originated in Ohio in 1864, no one [here] knew that,”</em> James Butler, manager of the Lion Cafe in Honolulu, Hawaii, said.</p1>
+            <div className="Lions-head-image">
+              <div className="lion-logo-wrapper">
+                <img src={LionsHead} alt="Lion Coffee logo" className="lion-logo" />
+                <p className="lion-logo-desc">
+                  Lion Coffee logo. Image courtesy of Hawaii Coffee Company.
+                </p>
+              </div>
+          </div>
             <p>Prior to 1864, commercial coffee roasting didn’t really exist in the United States. Households would buy raw beans and roast them at home, most often in a cast-iron skillet on a stovetop or over a fire. It was a difficult process, and inexperienced roasters would often be left with bitter and scorched coffee to drink.</p>
             <p>C.C. Warren of Toledo began roasting in a friend’s barn (which at one point caught fire during his experimentation process), and in 1864, he trademarked Lion Coffee, leading him to be one of the first to roast coffee at a commercial level and hold one of the oldest trademarks in the U.S.</p>
           </div>
 
+          <div className="lion-image-gallery">
+            <div className="lion-image-item">
+              <img src={GreenEtching} alt="Green Lion Coffee Etching" />
+              <p className="lion-image-desc">Green Lion Coffee card etching. Source: Hawaii Coffee Company.</p>
+            </div>
+            <div className="lion-image-item">
+              <img src={EasterLion} alt="Easter Lion Coffee Advertisement" />
+              <p className="lion-image-desc">Easter-themed Lion Coffee advertisement. Source: Hawaii Coffee Company.</p>
+            </div>
+          </div>
+
+          <div>
+            <p>
+              Alvin Woolson of the Woolson Spice Company, another local aromatic venture, purchased Lion Coffee in 1872. Originally located on the corner of Jackson and Huron streets, by 1911, the factory had expanded and moved by the river on North Summit Street. The Woolson Spice Company sold spices and other dried goods, but Lion Coffee quickly became their signature brand.
+            </p>
+            <p>
+              Woolson was determined to turn Lion Coffee into a household name, and ultimately revolutionized the coffee industry in two ways. First, he introduced the idea of selling roasted coffee in one-pound packages. This streamlined the purchasing process, as selling already roasted and weighed coffee standardized the quality of coffee that customers would receive.
+            </p>
+          </div>
+
         </div>
+        <img src={WoolsonSpice} alt="Woolson-Spice" className="woolson-image" />
       </div>
-      </div>
-    </>
+    </div>
   );
 }
