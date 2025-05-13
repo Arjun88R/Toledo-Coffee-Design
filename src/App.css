@@ -282,13 +282,52 @@
   color: #000000;
 }
 
+
+.woolson-wrapper {
+  position: relative;
+  width: 100%;
+  top: 100 px;
+  overflow: hidden;
+}
+
 .woolson-image {
   width: 100%;
-  max-width: 1300px;
-  height: auto;
   display: block;
-  margin: 20px auto;
+}
 
-  position:relative;
-  top:100px;
+/* Ensure the overlay covers the image fully */
+.image-overlay,
+.image-overlay::before,
+.image-overlay::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  height: 100%;
+  background: #ffffff; /* translucent orange */
+  pointer-events: none;
+}
+
+.image-overlay {
+  width:100%;
+}
+
+.woolson-wrapper:hover .image-overlay {
+  animation: heightOverlay 0.3s 0.1s ease-in-out forwards;
+}
+
+.woolson-wrapper:hover .image-overlay::before {
+  animation: heightOverlay 0.3s ease-in-out forwards;
+}
+
+.woolson-wrapper:hover .image-overlay::after {
+  animation: heightOverlay 0.3s 0.2s ease-in-out forwards;
+}
+
+@keyframes heightOverlay {
+  from {
+    height: 100%;
+  }
+  to {
+    height: 0;
+  }
 }

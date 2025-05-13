@@ -135,7 +135,7 @@ export default function Navbar() {
 
           <div className="para-1">
             <p>he best coffee on the islands for many Hawaiian residents comes from a one-pound package with an iconic image: a lion’s head. But here’s the catch – the iconic lion and the coffee it brands trace their heritage not to the tropics, but about 4,400 miles to the northeast in Toledo.</p>
-            <p1><em>“When I tell people it originated in Ohio in 1864, no one [here] knew that,”</em> James Butler, manager of the Lion Cafe in Honolulu, Hawaii, said.</p1>
+            <p><em>“When I tell people it originated in Ohio in 1864, no one [here] knew that,”</em> James Butler, manager of the Lion Cafe in Honolulu, Hawaii, said.</p>
             <div className="Lions-head-image">
               <div className="lion-logo-wrapper">
                 <img src={LionsHead} alt="Lion Coffee logo" className="lion-logo" />
@@ -168,8 +168,12 @@ export default function Navbar() {
             </p>
           </div>
 
+          <div className="woolson-wrapper">
+            <img src={WoolsonSpice} alt="Woolson-Spice" className="woolson-image" />
+            <div className="image-overlay"></div>
+          </div>
+
         </div>
-        <img src={WoolsonSpice} alt="Woolson-Spice" className="woolson-image" />
       </div>
     </div>
   );
