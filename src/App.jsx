@@ -151,28 +151,36 @@ export default function Navbar() {
           <div className="lion-image-gallery">
             <div className="lion-image-item">
               <img src={GreenEtching} alt="Green Lion Coffee Etching" />
-              <p className="lion-image-desc">Green Lion Coffee card etching. Source: Hawaii Coffee Company.</p>
+              <p className="lion-image-desc">Lion Coffee branded trade card with midsummer advertisement, manufactured by Woolson Spice Company circa 1890. Image courtesy of Bowling Green State University via Ohio Memory.</p>
             </div>
             <div className="lion-image-item">
               <img src={EasterLion} alt="Easter Lion Coffee Advertisement" />
-              <p className="lion-image-desc">Easter-themed Lion Coffee advertisement. Source: Hawaii Coffee Company.</p>
+              <p className="lion-image-desc">Lion Coffee branded trade card with Easter holiday advertisement, manufactured by Woolson Spice Company circa 1890. Image courtesy of Bowling Green State University via Ohio Memory. </p>
             </div>
-          </div>
-
-          <div>
-            <p>
-              Alvin Woolson of the Woolson Spice Company, another local aromatic venture, purchased Lion Coffee in 1872. Originally located on the corner of Jackson and Huron streets, by 1911, the factory had expanded and moved by the river on North Summit Street. The Woolson Spice Company sold spices and other dried goods, but Lion Coffee quickly became their signature brand.
-            </p>
-            <p>
-              Woolson was determined to turn Lion Coffee into a household name, and ultimately revolutionized the coffee industry in two ways. First, he introduced the idea of selling roasted coffee in one-pound packages. This streamlined the purchasing process, as selling already roasted and weighed coffee standardized the quality of coffee that customers would receive.
-            </p>
           </div>
 
           <div className="woolson-wrapper">
             <img src={WoolsonSpice} alt="Woolson-Spice" className="woolson-image" />
-            <div className="image-overlay"></div>
+            <div className="image-overlay">
+              <p>
+                Alvin Woolson of the Woolson Spice Company, another local aromatic venture, purchased Lion Coffee in 1872. Originally located on the corner of Jackson and Huron streets, by 1911, the factory had expanded and moved by the river on North Summit Street. The Woolson Spice Company sold spices and other dried goods, but Lion Coffee quickly became their signature brand.
+              </p>
+              <p>
+                Woolson was determined to turn Lion Coffee into a household name, and ultimately revolutionized the coffee industry in two ways. First, he introduced the idea of selling roasted coffee in one-pound packages. This streamlined the purchasing process, as selling already roasted and weighed coffee standardized the quality of coffee that customers would receive.
+              </p>
+            </div>
           </div>
+          <div>
+            <p>
+              He also introduced the idea of premiums as an incentive to purchase the coffee. Each bag of Lion coffee included a picture card, and customers could cut images of the iconic lion’s head from packages and send them back to the company for prizes. Today, you can still collect the picture cards as postcards, as documented in Sandy and John R. Husman’s “You Will Do Better in Toledo: From Frogtown to Glass City.”
 
+This marketing scheme not only transformed the coffee industry, but the mail service, as well. According to the Husman’s, Woolson vice president N.L. Schmid remembered, “when the incoming mail was so heavy that we had to send our own truck to the post office to pick it up.” Eventually, the company had to weigh the mail they received, rather than counting each individual lion head, a method that the USPS soon adopted for dealing with bulk mail.”
+
+The premiums were popular in part because they included prizes that appealed to people of all backgrounds and ages. 
+
+According to “You Will Do Better in Toledo: From Frogtown to Glass City,” Schmid once shared in an interview that the premiums included suitcases, lamps, curtains, bicycles and more, and that “[s]ome individuals who made it their business to go through the country buying the lion heads would deliver as many as 8,000 or 10,000 and in redeeming them would take our entire supply of suitcases.”
+            </p>
+          </div>
         </div>
       </div>
     </div>

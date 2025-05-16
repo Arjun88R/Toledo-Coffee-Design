@@ -200,7 +200,7 @@ color: #FFEFCE; /* or another color you prefer */
 
 .background-image-2 {
   width: 100%;
-  height: 2000px;
+  height: 2500px;
   background-color: #EDE1CD;
   display: flex;
   flex-direction: column;
@@ -214,7 +214,7 @@ color: #FFEFCE; /* or another color you prefer */
 .background-image-2 .section-1 {
   font-size: 18px;
   position: relative;
-  bottom:-100px;
+  bottom:500px;
   width:600px;
   color:#000000;
   text-align: left;
@@ -293,52 +293,75 @@ color: #FFEFCE; /* or another color you prefer */
   color: #000000;
 }
 
-
 .woolson-wrapper {
   position: relative;
-  width: 100%;
-  top: 100 px;
+  width: 600px;
+  height: 350px;
+  top: 90px;
   overflow: hidden;
+  border: 3px solid #EDE1CD;
+  border-radius: 20px;
+
+  border: 3px solid #EDE1CD;        /* Border color and thickness */
+  border-radius: 20px;              /* Rounded corners */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Subtle shadow */
 }
 
 .woolson-image {
   width: 100%;
-  display: block;
-}
-
-/* Ensure the overlay covers the image fully */
-.image-overlay,
-.image-overlay::before,
-.image-overlay::after {
-  content: '';
-  position: absolute;
-  top: 0;
   height: 100%;
-  background: #ffffff; /* translucent orange */
-  pointer-events: none;
+  object-fit: contain;
+  display: block;
+  border-radius: 20px;
 }
 
 .image-overlay {
-  width:100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #EDE1CD;
+  border-radius: 20px;
+  overflow: hidden;
+  animation: heightOverlayIn 0.3s ease-in-out forwards;
+  animation-play-state: paused;
 }
 
+.image-overlay p {
+  transition: opacity 0.3s ease-in-out;
+  padding: 10px;
+  opacity: 1;
+}
+
+/* Hover ON: shrink overlay, hide text */
 .woolson-wrapper:hover .image-overlay {
-  animation: heightOverlay 0.3s 0.1s ease-in-out forwards;
+  animation: heightOverlayOut 0.3s ease-in-out forwards;
+  animation-play-state: running;
 }
 
-.woolson-wrapper:hover .image-overlay::before {
-  animation: heightOverlay 0.3s ease-in-out forwards;
+.woolson-wrapper:hover .image-overlay p {
+  opacity: 0;
 }
 
-.woolson-wrapper:hover .image-overlay::after {
-  animation: heightOverlay 0.3s 0.2s ease-in-out forwards;
+/* Hover OFF: expand overlay, show text */
+.woolson-wrapper:not(:hover) .image-overlay {
+  animation: heightOverlayIn 0.3s ease-in-out forwards;
+  animation-play-state: running;
 }
 
-@keyframes heightOverlay {
-  from {
-    height: 100%;
-  }
-  to {
-    height: 0;
-  }
+.woolson-wrapper:not(:hover) .image-overlay p {
+  opacity: 1;
 }
+
+/* Keyframes */
+@keyframes heightOverlayOut {
+  from { height: 100%; }
+  to { height: 0%; }
+}
+
+@keyframes heightOverlayIn {
+  from { height: 0%; }
+  to { height: 100%; }
+}
+
