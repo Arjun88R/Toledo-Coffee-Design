@@ -74,12 +74,12 @@
 
 .dropdown-menu li a {
   padding: 8px 15px;
-  color:#8B7E74;
-  font-weight: normal;
+  color:#000000;
+  font-weight:normal;
 }
 
 .dropdown-menu li a:hover {
-  color:red;
+  color:#8ba361;
 }
 .search-icon {
   cursor: pointer;
@@ -131,7 +131,7 @@ color: #FFEFCE; /* or another color you prefer */
 }
 
 .search-container:hover .search-icon {
-  color: red;
+  color: #A3B18A;
 }
 
 .background-image-1 {
@@ -166,6 +166,42 @@ color: #FFEFCE; /* or another color you prefer */
   font-family: 'Recoleta Alt', serif;
   color:#FFEFCE;
 }
+
+.article-title {
+  display: inline-block;
+  font-size: 2.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  overflow: hidden;
+}
+.article-title {
+  display: inline-block;
+  font-size: 2.2rem;
+  font-weight: 600;
+  cursor: default;
+  overflow: hidden;
+  white-space: wrap;
+}
+
+.article-title .word {
+  display: inline-block;
+  margin-right: 0.35em;
+}
+
+.article-title .char-wrapper {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+  line-height: 1;
+}
+
+.article-title .char-inner {
+  display: inline-block;
+  transform: translateY(0%);
+  will-change: transform;
+}
+
+
 
 .background-image-1 .article-desc{
   font-size: 14px;
@@ -214,7 +250,7 @@ color: #FFEFCE; /* or another color you prefer */
 .background-image-2 .section-1 {
   font-size: 18px;
   position: relative;
-  bottom:500px;
+  bottom: 100px;
   width:600px;
   color:#000000;
   text-align: left;
@@ -299,12 +335,9 @@ color: #FFEFCE; /* or another color you prefer */
   height: 350px;
   top: 90px;
   overflow: hidden;
-  border: 3px solid #EDE1CD;
-  border-radius: 20px;
-
-  border: 3px solid #EDE1CD;        /* Border color and thickness */
-  border-radius: 20px;              /* Rounded corners */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+  border: 3px solid #A3B18A;
+  border-radius: 20px;         /* Rounded corners */
+  box-shadow: 0 4px 12px #A3B18A; /* Subtle shadow */
 }
 
 .woolson-image {
@@ -321,7 +354,7 @@ color: #FFEFCE; /* or another color you prefer */
   left: 0;
   width: 100%;
   height: 100%;
-  background: #EDE1CD;
+  background: #A3B18A;
   border-radius: 20px;
   overflow: hidden;
   animation: heightOverlayIn 0.3s ease-in-out forwards;
@@ -365,3 +398,7 @@ color: #FFEFCE; /* or another color you prefer */
   to { height: 100%; }
 }
 
+.paragraph-2{
+  position:relative;
+  top:100px;
+}

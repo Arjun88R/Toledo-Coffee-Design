@@ -1,15 +1,61 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
+import { gsap } from "gsap";
+import { SplitText } from "gsap/SplitText";
 import './App.css';
 import logo from './assets/logo.png'; // replace with your logo path
 import LionsHead from './assets/Lions head.jpg';
 import GreenEtching from './assets/Lion-coffee-card-green-etching.jpg';
 import EasterLion from './assets/Easter-Lion-coffee-ad.jpg';
 import WoolsonSpice from './assets/Woolson-Spice.jpg';
+import LionCoffeeCard from './assets/Lion-Coffee-2.jpg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faAnglesDown } from '@fortawesome/free-solid-svg-icons';
 
+gsap.registerPlugin(SplitText);
+
 export default function Navbar() {
   const scrollTargetRef = useRef(null);
+  const titleRef = useRef(null);
+
+ useEffect(() => {
+  const split = new SplitText(titleRef.current, {
+    type: "words,chars",
+    wordsClass: "word",
+    charsClass: "char-wrapper"
+  });
+
+  // wrap each letter inside a span.char-inner
+  split.chars.forEach((char) => {
+    const inner = document.createElement("span");
+    inner.className = "char-inner";
+    inner.textContent = char.textContent;
+    char.textContent = "";
+    char.appendChild(inner);
+  });
+
+  const words = titleRef.current.querySelectorAll(".word");
+
+  words.forEach((word) => {
+    word.addEventListener("mouseenter", () => {
+      const inners = word.querySelectorAll(".char-inner");
+
+      gsap.fromTo(inners,
+        { y: "0%" },
+        {
+          y: "-100%",
+          duration: 0.5,
+          ease: "power2.out",
+          stagger: 0.1
+        }
+      );
+    });
+  });
+
+  return () => {
+    split.revert();
+  };
+}, []);
+
 
   const handleChevronClick = () => {
     if (scrollTargetRef.current) {
@@ -112,9 +158,11 @@ export default function Navbar() {
         </div>
 
         <div className="article-title">
-          <h3>How Toledo, Ohio Revolutionized the Coffee Industry</h3>
+          <h3 ref={titleRef}>
+            How Toledo, Ohio Revolutionized the Coffee Industry
+          </h3>
         </div>
-  
+
           <div className="article-desc">
               <p>Toledo has a long history of roasting and selling coffee. When mass production of coffee in the United States first began, Toledo was at the forefront of the industry on an international level, and locally, coffee was a special part of shopping for many Toledoans. Today, Toledo's rich heritage in coffee production lives on in the image of a lion and through local roasters reviving the tradition.</p>
           </div>
@@ -170,19 +218,27 @@ export default function Navbar() {
               </p>
             </div>
           </div>
-          <div>
+
+          <div className="paragraph-2">
             <p>
               He also introduced the idea of premiums as an incentive to purchase the coffee. Each bag of Lion coffee included a picture card, and customers could cut images of the iconic lion’s head from packages and send them back to the company for prizes. Today, you can still collect the picture cards as postcards, as documented in Sandy and John R. Husman’s “You Will Do Better in Toledo: From Frogtown to Glass City.”
-
-This marketing scheme not only transformed the coffee industry, but the mail service, as well. According to the Husman’s, Woolson vice president N.L. Schmid remembered, “when the incoming mail was so heavy that we had to send our own truck to the post office to pick it up.” Eventually, the company had to weigh the mail they received, rather than counting each individual lion head, a method that the USPS soon adopted for dealing with bulk mail.”
-
-The premiums were popular in part because they included prizes that appealed to people of all backgrounds and ages. 
-
-According to “You Will Do Better in Toledo: From Frogtown to Glass City,” Schmid once shared in an interview that the premiums included suitcases, lamps, curtains, bicycles and more, and that “[s]ome individuals who made it their business to go through the country buying the lion heads would deliver as many as 8,000 or 10,000 and in redeeming them would take our entire supply of suitcases.”
+            </p>
+            <p> 
+              This marketing scheme not only transformed the coffee industry, but the mail service, as well. According to the Husman’s, Woolson vice president N.L. Schmid remembered, “when the incoming mail was so heavy that we had to send our own truck to the post office to pick it up.” Eventually, the company had to weigh the mail they received, rather than counting each individual lion head, a method that the USPS soon adopted for dealing with bulk mail.”
+            </p>  
+            <p>  
+              The premiums were popular in part because they included prizes that appealed to people of all backgrounds and ages. 
+            </p>
+            <p>  
+              According to “You Will Do Better in Toledo: From Frogtown to Glass City,” Schmid once shared in an interview that the premiums included suitcases, lamps, curtains, bicycles and more, and that “[s]ome individuals who made it their business to go through the country buying the lion heads would deliver as many as 8,000 or 10,000 and in redeeming them would take our entire supply of suitcases.”
             </p>
           </div>
+        
         </div>
       </div>
+    <div className="Lion-Coffee-2">
+        <img src={LionCoffeeCard} alt="Easter Lion Coffee Advertisement" />
+    </div>
     </div>
   );
 }
