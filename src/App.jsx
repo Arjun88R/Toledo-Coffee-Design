@@ -1,5 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 import { gsap } from "gsap";
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { SplitText } from "gsap/SplitText";
 import './App.css';
 import logo from './assets/logo.png'; // replace with your logo path
@@ -8,60 +9,48 @@ import GreenEtching from './assets/Lion-coffee-card-green-etching.jpg';
 import EasterLion from './assets/Easter-Lion-coffee-ad.jpg';
 import WoolsonSpice from './assets/Woolson-Spice.jpg';
 import LionCoffeeCard from './assets/Lion-Coffee-2.jpg';
+import CardFront from './assets/PictureCardFront.jpg';
+import CardBack from './assets/PictureCardBack.jpg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faAnglesDown } from '@fortawesome/free-solid-svg-icons';
 
-gsap.registerPlugin(SplitText);
+gsap.registerPlugin(SplitText, ScrollTrigger);
 
 export default function Navbar() {
   const scrollTargetRef = useRef(null);
-  const titleRef = useRef(null);
-
- useEffect(() => {
-  const split = new SplitText(titleRef.current, {
-    type: "words,chars",
-    wordsClass: "word",
-    charsClass: "char-wrapper"
-  });
-
-  // wrap each letter inside a span.char-inner
-  split.chars.forEach((char) => {
-    const inner = document.createElement("span");
-    inner.className = "char-inner";
-    inner.textContent = char.textContent;
-    char.textContent = "";
-    char.appendChild(inner);
-  });
-
-  const words = titleRef.current.querySelectorAll(".word");
-
-  words.forEach((word) => {
-    word.addEventListener("mouseenter", () => {
-      const inners = word.querySelectorAll(".char-inner");
-
-      gsap.fromTo(inners,
-        { y: "0%" },
-        {
-          y: "-100%",
-          duration: 0.5,
-          ease: "power2.out",
-          stagger: 0.1
-        }
-      );
-    });
-  });
-
-  return () => {
-    split.revert();
-  };
-}, []);
-
-
   const handleChevronClick = () => {
     if (scrollTargetRef.current) {
       scrollTargetRef.current.scrollIntoView({ behavior: 'smooth' });
     }
   };
+  const chevronRef = useRef(null);
+  const bgImageOneRef = useRef(null);
+
+ useEffect(() => {
+
+  gsap.to(chevronRef.current, {
+  y: -10,
+  duration: 0.8,
+  repeat: -1,
+  yoyo: true,
+  ease: "power1.inOut"
+});
+
+  gsap.to(bgImageOneRef.current,{
+    borderRadius: "0 0 0 0",
+    ease: "none",
+    scrollTrigger: {
+      trigger: bgImageOneRef.current,
+      start: "top top",
+      end: "bottom top",
+      scrub: true
+    }
+  }
+
+  )
+
+
+}, []);
 
   return (
     <div className="main-container">
@@ -147,7 +136,7 @@ export default function Navbar() {
           <FontAwesomeIcon icon={faSearch} className="search-icon" />
         </div>
       </nav>
-      <div className="background-image-1">
+      <div className="background-image-1" ref={bgImageOneRef}>
         <div className="stories">
           <div className="stories-title">
             <h2>STORIES</h2>
@@ -158,7 +147,7 @@ export default function Navbar() {
         </div>
 
         <div className="article-title">
-          <h3 ref={titleRef}>
+          <h3>
             How Toledo, Ohio Revolutionized the Coffee Industry
           </h3>
         </div>
@@ -171,7 +160,7 @@ export default function Navbar() {
               <p>November 3rd, 2025</p>
           </div>
 
-          <button className="chevron-button" aria-label="Expand article" onClick={handleChevronClick}>
+          <button ref={chevronRef} className="chevron-button" aria-label="Expand article" onClick={handleChevronClick}>
             <FontAwesomeIcon icon={faAnglesDown} />
           </button>
       </div>
@@ -233,12 +222,23 @@ export default function Navbar() {
               According to “You Will Do Better in Toledo: From Frogtown to Glass City,” Schmid once shared in an interview that the premiums included suitcases, lamps, curtains, bicycles and more, and that “[s]ome individuals who made it their business to go through the country buying the lion heads would deliver as many as 8,000 or 10,000 and in redeeming them would take our entire supply of suitcases.”
             </p>
           </div>
-        
+
+        </div>
+
+      </div>
+      
+      {/******************** Section - 2: Scroll-Reveal Image ********************/}
+      <div className="background-image-3">
+        <div className="section-2">
+          <div className="scroll-reveal-container">
+            <img src={LionCoffeeCard} alt="Lion Coffee Card" className="LionCoffeeCard"/>
+            <img src={CardFront} alt="Card Front" className='CardFront'/>
+            <img src={CardBack} alt="Card Back" className='CardBack'/>
+          </div>
         </div>
       </div>
-    <div className="Lion-Coffee-2">
-        <img src={LionCoffeeCard} alt="Easter Lion Coffee Advertisement" />
-    </div>
+
+
     </div>
   );
 }
