@@ -25,6 +25,7 @@ export default function Navbar() {
   };
   const chevronRef = useRef(null);
   const bgImageOneRef = useRef(null);
+  const bgImageThreeRef = useRef(null);
 
  useEffect(() => {
 
@@ -45,8 +46,18 @@ export default function Navbar() {
       end: "bottom top",
       scrub: true
     }
-  }
+  })
 
+  gsap.to(bgImageThreeRef.current,{
+    borderRadius: "0 0 0 0",
+    ease:"none",
+    scrollTrigger: {
+      trigger: bgImageThreeRef.current,
+      start: "top center",
+      end : "bottom center",
+      scrub: true,
+    }
+  }
   )
 
 
@@ -197,7 +208,14 @@ export default function Navbar() {
           </div>
 
           <div className="woolson-wrapper">
+
             <img src={WoolsonSpice} alt="Woolson-Spice" className="woolson-image" />
+            <div className="woolson-caption">
+              <p>
+                Postcard of Woolson Spice building and warehouse. Image courtesy of Toledo Lucas County Public Library via Ohio Memory.
+              </p>
+            </div>
+
             <div className="image-overlay">
               <p>
                 Alvin Woolson of the Woolson Spice Company, another local aromatic venture, purchased Lion Coffee in 1872. Originally located on the corner of Jackson and Huron streets, by 1911, the factory had expanded and moved by the river on North Summit Street. The Woolson Spice Company sold spices and other dried goods, but Lion Coffee quickly became their signature brand.
@@ -228,15 +246,46 @@ export default function Navbar() {
       </div>
       
       {/******************** Section - 2: Scroll-Reveal Image ********************/}
-      <div className="background-image-3">
+      <div className="background-image-3" ref={bgImageThreeRef}>
         <div className="section-2">
-          <div className="scroll-reveal-container">
-            <img src={LionCoffeeCard} alt="Lion Coffee Card" className="LionCoffeeCard"/>
-            <img src={CardFront} alt="Card Front" className='CardFront'/>
-            <img src={CardBack} alt="Card Back" className='CardBack'/>
+
+          <div className="caption-container">
+            <p className="caption-text">
+              Lion Coffee advertised  
+              <br />“A Picture Card in Every Package.” 
+              <br /><span className="credit-line">Image courtesy of the Library Company of Philadelphia.</span>
+            </p>
+            <div className="underline"></div>
+            <div className="dropdown-image">
+              <img src={LionCoffeeCard} alt="Lion Coffee Card" />
+            </div>
           </div>
+
+          <div className="caption-container">
+            <p className="caption-text">
+              The front of a Lion Coffee picture card
+              <br /><span className="credit-line">Images courtesy of Toledo Lucas County Public Library via Ohio Memory.</span>
+            </p>
+            <div className="underline"></div>
+            <div className="dropdown-image">
+              <img src={CardFront} alt="CardFront" />
+            </div>
+          </div>
+
+          <div className="caption-container">
+            <p className="caption-text">
+              The back of a Lion Coffee picture card
+              <br /><span className="credit-line">Images courtesy of Toledo Lucas County Public Library via Ohio Memory.</span>
+            </p>
+            <div className="underline"></div>
+            <div className="dropdown-image">
+              <img src={CardBack} alt="CardBack" />
+            </div>
+          </div>
+
         </div>
       </div>
+
 
 
     </div>

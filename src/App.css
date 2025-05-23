@@ -259,7 +259,8 @@ color: #FFEFCE; /* or another color you prefer */
   max-width: 100%;
   height: 300px;
   border-radius: 8px;
-  box-shadow: 0 12px 15px rgba(0, 0, 0, 0.25);
+  border: 1px solid #000;
+  box-shadow: 0px 5px 0px rgba(0, 0, 0, 1);
 }
 
 .lion-logo-desc {
@@ -291,7 +292,8 @@ color: #FFEFCE; /* or another color you prefer */
   width: 100%;
   height: auto;
   border-radius: 10px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  border: 1px solid #000;
+  box-shadow: 0px 5px 0px rgba(0, 0, 0, 1);
 }
 
 .lion-image-desc {
@@ -302,13 +304,15 @@ color: #FFEFCE; /* or another color you prefer */
 
 .woolson-wrapper {
   position: relative;
-  width: 600px;
+  width: 800px;
   height: 350px;
   top: 120px;
   overflow: hidden;
-  border-radius: 20px;         /* Rounded corners */
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  border-radius: 15px;         /* Rounded corners */
+  border: 2px solid #000000;
+  box-shadow: 0px 6px 0px rgba(0, 0, 0, 1);
   margin: 0 auto;
+  transition: opacity 1s ease-in-out;
 }
 
 .woolson-image {
@@ -316,8 +320,12 @@ color: #FFEFCE; /* or another color you prefer */
   height: 100%;
   object-fit: contain;
   display: block;
-  border-radius: 20px;
+  border-radius: 25px;
 }
+
+.woolson-caption{
+  position: relative;
+} 
 
 .image-overlay {
   position: absolute;
@@ -334,14 +342,14 @@ color: #FFEFCE; /* or another color you prefer */
 }
 
 .image-overlay p {
-  transition: opacity 0.3s ease-in-out;
+  transition: opacity 0.1s ease-in-out;
   padding: 10px;
   opacity: 1;
 }
 
 /* Hover ON: shrink overlay, hide text */
 .woolson-wrapper:hover .image-overlay {
-  animation: heightOverlayOut 0.3s ease-in-out forwards;
+  animation: heightOverlayOut 0.1s ease-in-out forwards;
   animation-play-state: running;
 }
 
@@ -351,12 +359,17 @@ color: #FFEFCE; /* or another color you prefer */
 
 /* Hover OFF: expand overlay, show text */
 .woolson-wrapper:not(:hover) .image-overlay {
-  animation: heightOverlayIn 0.3s ease-in-out forwards;
+  animation: heightOverlayIn 0.1s ease-in-out forwards;
   animation-play-state: running;
 }
 
 .woolson-wrapper:not(:hover) .image-overlay p {
   opacity: 1;
+}
+
+.woolson-wrapper:hover {
+    box-shadow: none;
+    top: 130px;
 }
 
 /* Keyframes */
@@ -372,7 +385,7 @@ color: #FFEFCE; /* or another color you prefer */
 
 .paragraph-2{
   position:relative;
-  top:200px;
+  top:170px;
 }
 
 
@@ -387,12 +400,11 @@ color: #FFEFCE; /* or another color you prefer */
   color: rgb(0, 0, 0);
   text-align: center;
   font-family: 'Garamond','sans-serif';
-  border-radius: 450px 450px 0 0;
+  border-radius:200px;
 }
-
 .background-image-3 .section-2 {
-  font-size: 20px;
   position: relative;
+  bottom: 50px;
   width:800px;
   color:#000000;
   text-align: left;
@@ -401,16 +413,56 @@ color: #FFEFCE; /* or another color you prefer */
   margin: 0 auto;
 }
 
-
-.scroll-reveal-container{
-  margin-top: 100px;
+.caption-container {
+  position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  min-height: 300px;
-  gap:100px;
+  margin-bottom: 60px;
 }
+
+.caption-text {
+  font-size: 50px;
+  color: #fff;
+  text-align: center;
+  cursor: pointer;
+}
+
+.credit-line {
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+.underline {
+  width: 80%;
+  height: 1px;
+  background-color: #fff;
+  margin-top: 8px;
+}
+
+.dropdown-image {
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: all 0.5s ease;
+}
+
+.caption-container:hover .dropdown-image {
+  max-height: 500px;
+  opacity: 1;
+  transform: translateY(10px);
+}
+
+.dropdown-image img {
+  width: 100%;
+  max-width: 500px;
+  margin-top: 12px;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}
+
+
 
 .LionCoffeeCard {
   width:600px;
