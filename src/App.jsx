@@ -11,6 +11,7 @@ import WoolsonSpice from './assets/Woolson-Spice.jpg';
 import LionCoffeeCard from './assets/Lion-Coffee-2.jpg';
 import CardFront from './assets/PictureCardFront.jpg';
 import CardBack from './assets/PictureCardBack.jpg';
+import TiedtkesCoffee from './assets/Tiedtkes-Coffee.jpg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch, faAnglesDown } from '@fortawesome/free-solid-svg-icons';
 
@@ -53,8 +54,8 @@ export default function Navbar() {
     ease:"none",
     scrollTrigger: {
       trigger: bgImageThreeRef.current,
-      start: "top center",
-      end : "bottom center",
+      start: "top top",
+      end : "bottom top",
       scrub: true,
     }
   }
@@ -246,7 +247,7 @@ export default function Navbar() {
       </div>
       
       {/******************** Section - 2: Scroll-Reveal Image ********************/}
-      <div className="background-image-3" ref={bgImageThreeRef}>
+      <div className="background-image-3">
         <div className="section-2">
 
           <div className="caption-container">
@@ -255,7 +256,6 @@ export default function Navbar() {
               <br />“A Picture Card in Every Package.” 
               <br /><span className="credit-line">Image courtesy of the Library Company of Philadelphia.</span>
             </p>
-            <div className="underline"></div>
             <div className="dropdown-image">
               <img src={LionCoffeeCard} alt="Lion Coffee Card" />
             </div>
@@ -266,7 +266,6 @@ export default function Navbar() {
               The front of a Lion Coffee picture card
               <br /><span className="credit-line">Images courtesy of Toledo Lucas County Public Library via Ohio Memory.</span>
             </p>
-            <div className="underline"></div>
             <div className="dropdown-image">
               <img src={CardFront} alt="CardFront" />
             </div>
@@ -277,7 +276,6 @@ export default function Navbar() {
               The back of a Lion Coffee picture card
               <br /><span className="credit-line">Images courtesy of Toledo Lucas County Public Library via Ohio Memory.</span>
             </p>
-            <div className="underline"></div>
             <div className="dropdown-image">
               <img src={CardBack} alt="CardBack" />
             </div>
@@ -285,6 +283,39 @@ export default function Navbar() {
 
         </div>
       </div>
+
+      <div className='background-image-4'>
+        <div className="section-3">
+          <p className="tiedtke-para">
+            <p>
+              Lion Coffee was sold all over the country. For several decades in the early 20th century, Woolson supplied almost all of the coffee consumed in the United States, with its only true competitor being the Arbuckle Company of Pittsburgh. When Woolson retired in 1897, the building housed 48 roasters and produced almost 454,000 bags annually.
+            </p>
+            <p>
+              The combination of convenience and marketing appeal led Lion Coffee and Woolson’s to become immensely popular. The popularity, however, came at a cost — quite literally. Such large-scale marketing and the competitively low price of its coffee made for financial losses that Woolson Spice Company could not sustain; the final strike came with an unsuccessful lawsuit that led to the liquidation of the company in 1919
+            </p>
+            <p>
+            Lion Coffee was out of production for decades until Jim Delano obtained the rights to the company in 1979 and the production and assets were moved to Hawaii, where Lion Coffee remains headquartered today.
+            </p>
+            <p>
+            Lion Coffee’s grand rise and equally tremendous fall in Toledo weren’t unique. In the early years, coffee giants such as Great Atlantic & Pacific Tea Co., Berdan Co., Interstate Coffee Co. and Tiedtke’s occupied prime locations downtown and provided employment and beans to the city and abroad. As competition grew, companies folded or migrated out to other urban areas. 
+            </p>
+            <p>
+            But for many Toledoans who recall the city’s golden era, memories of downtown will forever be associated with the smell of coffee. One of the best-loved stores downtown, Tiedtke’s, had a specially formatted ventilation system that blew the smell of their in-house brew throughout the store to lure customers in.
+            </p>
+            <p>
+            “You’ll hear old-timers talk about how you could always smell coffee and you could always smell popcorn from the moment you walked in,” John Mohn, a local resident, said. “They just would pipe that or at least part of the exhaust right back in the store.”
+            </p>          
+          </p>
+
+          <div className="tiedtkes-img">
+            <img src={TiedtkesCoffee} alt="Tiedtkes-Coffee"/>
+            <p>Tiedtke’s department store, which used a ventilation system behind the coffee counter to waft the smell of roasting beans throughout the store. Image courtesy of Toledo-Lucas County Public Library via Ohio Memory.</p>
+          </div>
+
+        </div>
+      </div>
+
+      
 
 
 

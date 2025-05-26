@@ -391,23 +391,21 @@ color: #FFEFCE; /* or another color you prefer */
 
 .background-image-3 {
   width: 100%;
-  height: 2000px;
-  background-color: #472101;
+  height: 1500px;
+  background-color: #331F14;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
   color: rgb(0, 0, 0);
-  text-align: center;
   font-family: 'Garamond','sans-serif';
-  border-radius:200px;
+  border-radius: 0 0 500px 500px;
 }
 .background-image-3 .section-2 {
   position: relative;
   bottom: 50px;
   width:800px;
   color:#000000;
-  text-align: left;
+  text-align: center;
   justify-content: center;
   align-items: center;
   margin: 0 auto;
@@ -417,15 +415,18 @@ color: #FFEFCE; /* or another color you prefer */
   position: relative;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: center; /* This centers the flex items horizontally */
   margin-bottom: 60px;
 }
 
 .caption-text {
   font-size: 50px;
-  color: #fff;
-  text-align: center;
+  color: #EDE1CD;
+  /* Remove text-align: center here, as it's handled by parent's align-items */
   cursor: pointer;
+  margin: 0; /* Corrected from 'none' to a valid CSS value */
+  display: inline-block; /* Make the element only as wide as its content */
+  padding: 5px 10px; /* Optional: Add a small padding to make hovering slightly easier without expanding too much */
 }
 
 .credit-line {
@@ -433,12 +434,6 @@ color: #FFEFCE; /* or another color you prefer */
   opacity: 0.8;
 }
 
-.underline {
-  width: 80%;
-  height: 1px;
-  background-color: #fff;
-  margin-top: 8px;
-}
 
 .dropdown-image {
   overflow: hidden;
@@ -448,10 +443,15 @@ color: #FFEFCE; /* or another color you prefer */
   transition: all 0.5s ease;
 }
 
-.caption-container:hover .dropdown-image {
-  max-height: 500px;
+/* This rule correctly targets the dropdown-image when caption-text is hovered */
+.caption-text:hover + .dropdown-image {
+  max-height: 500px; /* Ensure this is large enough for your image */
   opacity: 1;
   transform: translateY(10px);
+}
+
+.caption-text:hover {
+  color: #fff;
 }
 
 .dropdown-image img {
@@ -476,3 +476,56 @@ color: #FFEFCE; /* or another color you prefer */
   width:600px;
 }
 
+.background-image-4{
+  position: relative;
+  width:800px;
+  color:#000000;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.background-image-4 .section-3 {
+  position: relative;
+  top: 30px;
+  width:800px;
+  color:#000000;
+  text-align: left;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.tiedtkes-img {
+  font-family: 'Recoleta Alt', sans-serif;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 40px;
+  position: relative;
+  bottom: 100px; /* This moves the whole div up */
+
+  border-radius: 8px;
+  border: 1px solid #000;
+  box-shadow: 0px 5px 0px rgba(0, 0, 0, 1);
+
+  box-sizing: border-box;
+}
+
+.tiedtkes-img img {
+  max-width: 100%;
+  height: auto;
+  display: block; 
+  border-radius: 6px; 
+}
+
+.tiedtkes-img p {
+  margin-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  text-align: center;
+  font-size: 14px;
+  color: #333;
+}
